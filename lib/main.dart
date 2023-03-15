@@ -29,5 +29,6 @@ class App extends StatelessWidget {
       ),
       home: const PontosPage(),
     );
+    //alteração
   }
 }
