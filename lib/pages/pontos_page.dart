@@ -30,6 +30,7 @@ class PontosPage extends StatelessWidget {
             myLocationEnabled: true,
             onMapCreated: local.onMapCreated,
             markers: local.markers,
+            polylines: local.polyline,
           );
         }),
       ),
