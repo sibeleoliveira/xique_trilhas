@@ -10,7 +10,7 @@ import 'package:gpx/gpx.dart';
 class PontosController extends ChangeNotifier {
   double lat = 0.0;
   double long = 0.0;
-  String erro = '';
+  String error = '';
   Set<Marker> markers = {};
   Set<Polyline> polyline = {};
   late GoogleMapController _mapsController;
@@ -19,13 +19,13 @@ class PontosController extends ChangeNotifier {
 
   onMapCreated(GoogleMapController gmc) async {
     _mapsController = gmc;
-    getPosicao();
-    loadpontos();
-    loadRotaFromGPX();
+    getPosition();
+    loadPoints();
+    loadRouteFromGPX();
   }
 
-  loadRotaFromGPX() async {
-    String xmlString = await rootBundle.loadString('resources/trilha_if.gpx');
+  loadRouteFromGPX() async {
+    String xmlString = await rootBundle.loadString('assets/gpx/trilha_if.gpx');
     var xmlGpx = GpxReader().fromString(xmlString);
     List<LatLng> latLngList = [];
     for (Wpt wtp in xmlGpx.trks.single.trksegs.single.trkpts) {
@@ -34,12 +34,13 @@ class PontosController extends ChangeNotifier {
     polyline.add(Polyline(
         polylineId: const PolylineId('1'),
         points: latLngList,
-        color: Color.fromRGBO(197, 211, 0, 1), //Colors.greenAccent,
+        color: const Color.fromRGBO(197, 211, 0, 1), //Colors.greenAccent,
         width: 5));
   }
 
-  loadpontos() {
+  loadPoints() {
     final pontos = PontosRepository().pontos;
+    // ignore: avoid_function_literals_in_foreach_calls
     pontos.forEach((ponto) async {
       markers.add(
         Marker(
@@ -61,19 +62,21 @@ class PontosController extends ChangeNotifier {
     notifyListeners();
   }
 
-  getPosicao() async {
+  getPosition() async {
     try {
-      Position posicao = await _posicaoAtual();
+      Position posicao = await _currentPosition();
       lat = posicao.latitude;
       long = posicao.longitude;
+      lat = -10.823292; //deixando fixo por enquanto
+      long = -42.688681; //deixando fixo por enquanto
       _mapsController.animateCamera(CameraUpdate.newLatLng(LatLng(lat, long)));
     } catch (e) {
-      erro = e.toString();
+      error = e.toString();
     }
     notifyListeners();
   }
 
-  Future<Position> _posicaoAtual() async {
+  Future<Position> _currentPosition() async {
     LocationPermission permissao;
 
     bool ativado = await Geolocator.isLocationServiceEnabled();

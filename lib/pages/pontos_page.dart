@@ -17,7 +17,7 @@ class PontosPage extends StatelessWidget {
             style: TextStyle(
               color: Color.fromRGBO(197, 210, 0, 1),
             )),
-        backgroundColor: Color.fromRGBO(46, 46, 46, 1),
+        backgroundColor: const Color.fromRGBO(46, 46, 46, 1),
       ),
       body: ChangeNotifierProvider<PontosController>(
         create: (context) => PontosController(),
@@ -27,7 +27,7 @@ class PontosPage extends StatelessWidget {
           return GoogleMap(
             initialCameraPosition: CameraPosition(
               target: LatLng(local.lat, local.long),
-              zoom: 15,
+              zoom: 16,
             ),
             zoomControlsEnabled: true,
             mapType: MapType.hybrid,
