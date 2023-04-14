@@ -32,10 +32,10 @@ class PontosController extends ChangeNotifier {
       latLngList.add(LatLng(wtp.lat!, wtp.lon!));
     }
     polyline.add(Polyline(
-      polylineId: const PolylineId('1'),
-      points: latLngList,
-      color: Colors.cyan,
-    ));
+        polylineId: const PolylineId('1'),
+        points: latLngList,
+        color: Color.fromRGBO(197, 211, 0, 1), //Colors.greenAccent,
+        width: 5));
   }
 
   loadpontos() {

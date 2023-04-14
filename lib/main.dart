@@ -21,13 +21,10 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Xique Trilhas',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-      ),
-      home: const PontosPage(),
+      home: PontosPage(),
     );
     //alteração
   }

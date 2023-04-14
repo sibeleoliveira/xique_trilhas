@@ -39,14 +39,14 @@ class PontosRepository extends ChangeNotifier {
     ),
     Ponto(
       nome: 'Favela',
-      foto: 'images/photos/entrada_trilha.png',
+      foto: 'images/photos/favela.png',
       icone: 'images/icons/ponto_audio.png',
-      latitude: -10.821444,
-      longitude: -42.688293,
+      latitude: -10.822821,
+      longitude: -42.689356,
       descricao: 'Áudio: ...',
     ),
     Ponto(
-      nome: 'Catinga',
+      nome: 'Caatinga',
       foto: 'images/photos/entrada_trilha.png',
       icone: 'images/icons/ponto_audio.png',
       latitude: -10.821548,
