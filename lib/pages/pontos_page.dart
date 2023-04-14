@@ -13,7 +13,11 @@ class PontosPage extends StatelessWidget {
     return Scaffold(
       key: appKey,
       appBar: AppBar(
-        title: const Text('Trilha do IF Baiano'),
+        title: const Text('Trilha Ecológica do IF Baiano',
+            style: TextStyle(
+              color: Color.fromRGBO(197, 210, 0, 1),
+            )),
+        backgroundColor: Color.fromRGBO(46, 46, 46, 1),
       ),
       body: ChangeNotifierProvider<PontosController>(
         create: (context) => PontosController(),
