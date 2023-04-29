@@ -1,18 +1,19 @@
 class Ponto {
-  String nome;
+  String titulo;
   String foto;
   String icone;
   double latitude;
   double longitude;
-  String descricao;
-  String? audio;
+  String audio;
+  String subtitulo;
 
   Ponto({
-    required this.nome,
+    required this.titulo,
     required this.foto,
     required this.icone,
     required this.latitude,
     required this.longitude,
-    required this.descricao,
+    required this.audio,
+    required this.subtitulo,
   });
 }

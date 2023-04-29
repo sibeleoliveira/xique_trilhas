@@ -34,7 +34,7 @@ class PontosController extends ChangeNotifier {
     polyline.add(Polyline(
         polylineId: const PolylineId('1'),
         points: latLngList,
-        color: const Color.fromRGBO(197, 211, 0, 1), //Colors.greenAccent,
+        color: const Color.fromRGBO(9, 182, 155, 1),
         width: 5));
   }
 
@@ -44,7 +44,7 @@ class PontosController extends ChangeNotifier {
     pontos.forEach((ponto) async {
       markers.add(
         Marker(
-          markerId: MarkerId(ponto.nome),
+          markerId: MarkerId(ponto.titulo),
           position: LatLng(ponto.latitude, ponto.longitude),
           icon: await BitmapDescriptor.fromAssetImage(
             const ImageConfiguration(),
@@ -52,6 +52,7 @@ class PontosController extends ChangeNotifier {
           ),
           onTap: () => {
             showModalBottomSheet(
+              backgroundColor: Colors.transparent,
               context: appKey.currentState!.context,
               builder: (context) => PontoDetalhes(ponto: ponto),
             )

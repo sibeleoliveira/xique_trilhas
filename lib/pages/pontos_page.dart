@@ -15,7 +15,9 @@ class PontosPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Trilha Ecológica do IF Baiano',
             style: TextStyle(
-              color: Color.fromRGBO(197, 210, 0, 1),
+              fontFamily: 'MontserratSemiBold',
+              fontSize: 18,
+              color: Color.fromRGBO(9, 182, 155, 1),
             )),
         backgroundColor: const Color.fromRGBO(46, 46, 46, 1),
       ),
